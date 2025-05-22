@@ -9,6 +9,7 @@ const contactRoutes = require('./routes/contactRoutes');
 const userRoutes = require('./routes/userRoutes');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+const fs = require('fs');
 
 connectDb();
 const app = express();
@@ -17,7 +18,7 @@ const app = express();
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.get('/api-docs', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'swagger.html'));
+  res.sendFile(path.resolve(__dirname, 'api', 'swagger.html'));
 });
 
 // Serve the spec as raw JSON
