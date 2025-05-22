@@ -13,7 +13,22 @@ connectDb();
 const app = express();
 
 // Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use(
+  '/api-docs',
+  swaggerUi.serveFiles(swaggerFile, {
+    swaggerOptions: {
+      url: '/swagger.json', // Load your spec from a direct endpoint
+    },
+  }),
+  swaggerUi.setup(swaggerFile)
+);
+
+// Serve the spec as raw JSON
+app.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerFile);
+});
 
 // Rate limiting
 const limiter = rateLimit({
