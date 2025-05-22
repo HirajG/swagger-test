@@ -8,26 +8,24 @@ const swaggerFile = require('./docs/swagger-output.json');
 const contactRoutes = require('./routes/contactRoutes');
 const userRoutes = require('./routes/userRoutes');
 const rateLimit = require('express-rate-limit');
+const path = require('path');
 
 connectDb();
 const app = express();
 
 // Swagger UI
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
-app.use(
-  '/api-docs',
-  swaggerUi.serveFiles(swaggerFile, {
-    swaggerOptions: {
-      url: '/swagger.json', // Load your spec from a direct endpoint
-    },
-  }),
-  swaggerUi.setup(swaggerFile)
-);
+
+app.get('/api-docs', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'swagger.html'));
+});
 
 // Serve the spec as raw JSON
+const swaggerSpec = require('./docs/swagger-output.json');
+
 app.get('/swagger.json', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.send(swaggerFile);
+  res.send(swaggerSpec);
 });
 
 // Rate limiting
