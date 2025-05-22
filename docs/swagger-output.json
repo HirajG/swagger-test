@@ -5,7 +5,7 @@
     "description": "The Contact App is built using Node.js and Express.",
     "version": "1.0.0"
   },
-  "host": "localhost:5000",
+  "host": "localhost:5050",
   "basePath": "/",
   "schemes": [
     "http"
