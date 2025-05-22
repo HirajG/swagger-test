@@ -1,0 +1,31 @@
+{
+  "name": "mycontacts-backend",
+  "version": "1.0.0",
+  "description": "This is express mycontact-backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node api/server.js",
+    "dev": "nodemon api/server.js"
+  },
+  "author": "Varsha Ramani",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-async-handler": "^1.2.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.14.3",
+    "morgan": "^1.10.0",
+    "nodemailer": "^7.0.3",
+    "serverless-http": "^3.2.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
