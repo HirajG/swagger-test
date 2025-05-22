@@ -5,11 +5,11 @@
     "description": "The Contact App is built using Node.js and Express.",
     "version": "1.0.0"
   },
-  "host": "localhost:5050",
-  "basePath": "/",
+  "host": "swagger-test-two.vercel.app",
   "schemes": [
-    "http"
+    "https"
   ],
+  "basePath": "/",
   "paths": {
     "/api/contacts": {
       "get": {
